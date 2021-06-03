@@ -11,6 +11,7 @@ export default class Carousel {
   }
 
   render() {
+    //отрисовываем родителя carousel, стрелки и контейнер carousel__inner
     this.elem = createElement(`
         <div class="carousel">
           <div class="carousel__arrow carousel__arrow_right">
@@ -22,7 +23,7 @@ export default class Carousel {
           <div class="carousel__inner"></div>
         </div>
         `);
-
+    // отрисовываем массив со слайдами
     let slides = this.slides.map(item => createElement(`
       <div class="carousel__slide" data-id="${item.id}">
         <img
@@ -38,7 +39,7 @@ export default class Carousel {
           </button>
         </div>
       </div>`));
-
+    // carousel__ inner
     this.sub('inner').append(...slides);
 
     this.update();
